@@ -1,8 +1,8 @@
 <div class="shops-container">
   <div fxLayout ="row">
-    <div class="shops-notification">Нераспределенные магазины: 4</div><div class="icon-warning"></div>
+    <div class="shops-notification">Нераспределенные магазины: {{dataService.shops.length}}</div><div class="icon-warning"></div>
   </div>
-  <mat-action-list>
+  <mat-action-list *ngFor="let shop of dataService.shops">
     <button mat-list-item>
       <div fxLayout="row">
         <div class="icon-arrow"></div>
@@ -10,8 +10,8 @@
           <div>BS</div>
         </div>
         <div class = "shop-data">
-          <div class="shop-header">Brandshop на Дмитровской 7</div>
-          <div class="shop-address">г. Москва, ул. Курская, д. 392б, стр. 3, офис 239</div>
+          <div class="shop-header">{{shop.name}}</div>
+          <div class="shop-address">{{shop.fullAddress}}</div>
         </div>
       </div>
     </button>
