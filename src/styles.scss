@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #F2F2F2;}
+.icon-arrow{
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background-image: url('./assets/icons/Vector.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+.icon-warning{
+  width: 18px;
+  height: 18px;
+  position: relative;
+  background-image: url('./assets/icons/warning.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+.name-in-circle{
+  background: rgba(0, 0, 0, 0.72);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #F2F2F2;
+  div{
+    padding-top: 10px;
+  }
+}
+.shop-data{
+  padding-top: 3px;
+  padding-left: 30px;
+  .shop-header{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .shop-address{
+    padding-top: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 12px;
+    color: rgba(0, 0, 0, 0.32);
+  }
+}
+

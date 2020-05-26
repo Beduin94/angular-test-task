@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SpecialistsComponent implements OnInit {
 
   constructor() { }
-
+  viewMode = 'tab1';
   ngOnInit(): void {
   }
 

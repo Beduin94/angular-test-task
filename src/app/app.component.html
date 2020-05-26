@@ -1,6 +1,14 @@
 
-<div class ="container">
-  <app-save-form></app-save-form>
-  <app-specialists></app-specialists>
-  <app-shops></app-shops>
+<div class ="container" fxLayout ="row" fxLayoutGap="20px">
+  <div fxFlexAlign="stretch" fxFlex="50">
+    <app-specialists></app-specialists>
+  </div>
+  <div fxFlex="50" fxLayout="column" fxLayoutGap="24px">
+    <div>
+      <app-save-form></app-save-form>
+    </div>
+    <div>
+      <app-shops></app-shops>
+    </div>
+  </div>
 </div>

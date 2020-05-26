@@ -1,1 +1,54 @@
-<p>specialists works!</p>
+<div class="container">
+  <div class="tab-nav">
+    <ul class="tabs">
+      <li (click)="viewMode ='tab1'">
+        <div>
+          Tab 1
+        </div>
+      </li>
+      <li (click)="viewMode ='tab2'">
+        <div>
+          Tab 2
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-container" [ngSwitch]="viewMode">
+    <div class="tab-body" *ngSwitchCase="'tab1'">
+      <mat-card>
+        <div>
+          <h3>Специалист</h3>
+          <div>
+            <mat-list>
+              <mat-list-item>
+                <span class="photo">img</span>
+                <span class="specialist-name">Самойлов Алексей</span>
+                <span class="shops-counter">1 магазин</span>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+        <div>
+          <h3>Магазины</h3>
+          <mat-action-list>
+            <button mat-list-item>
+              <div fxLayout="row">
+                <div class="icon-arrow"></div>
+                <div class="name-in-circle" fxLayoutAlign="center">
+                  <div>BS</div>
+                </div>
+                <div class = "shop-data">
+                  <div class="shop-header">Brandshop на Дмитровской 7</div>
+                  <div class="shop-address">г. Москва, ул. Курская, д. 392б, стр. 3, офис 239</div>
+                </div>
+              </div>
+            </button>
+          </mat-action-list>
+        </div>
+      </mat-card>
+    </div>
+    <div class="tab-body" *ngSwitchCase="'tab2'">
+      <mat-card>Simple card2</mat-card>
+    </div>
+  </div>
+</div>
