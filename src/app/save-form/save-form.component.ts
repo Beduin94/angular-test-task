@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../services/data.service";
 
 @Component({
   selector: 'app-save-form',
   templateUrl: './save-form.component.html',
   styleUrls: ['./save-form.component.scss']
 })
-export class SaveFormComponent implements OnInit {
+export class SaveFormComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(public dataService: DataService) { }
 
 }
