@@ -4,6 +4,9 @@
   box-sizing: border-box;
   border-radius: 4px;
   min-height: 600px;
+  .mat-list-base{
+    padding-top: 0;
+  }
 }
 .shops-notification{
   color: rgba(0, 0, 0, 0.32);

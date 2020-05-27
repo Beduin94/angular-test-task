@@ -7,7 +7,7 @@ import {DataService} from '../services/data.service';
   styleUrls: ['./shops.component.scss']
 })
 export class ShopsComponent implements OnInit {
-  private loading: boolean = true;
+  loading: boolean = true;
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {

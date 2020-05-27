@@ -3,13 +3,13 @@
     <div class="shops-notification">Нераспределенные магазины: {{dataService.shops.length}}</div><div class="icon-warning"></div>
   </div>
   <mat-action-list *ngFor="let shop of dataService.shops">
-    <button mat-list-item>
+    <button mat-list-item *ngIf="!shop.distributed" (click)="dataService.addShopToSpecialist(shop)">
       <div fxLayout="row">
         <div class="icon-arrow"></div>
         <div class="name-in-circle" fxLayoutAlign="center">
           <div>BS</div>
         </div>
-        <div class = "shop-data">
+        <div class="shop-data">
           <div class="shop-header">{{shop.name}}</div>
           <div class="shop-address">{{shop.fullAddress}}</div>
         </div>
