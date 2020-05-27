@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="dataService.specialists && dataService.specialists.length">
   <div class="tab-nav">
     <ul class="tabs">
       <li *ngFor="let specialist of dataService.specialists" (click)="dataService.changeCurrentSpecialist(specialist)">
@@ -51,10 +51,21 @@
     </mat-card>
   </div>
 </div>
-<div *ngIf="!dataService.specialists || !dataService.specialists.length">
-  <div>
-    <button mat-mini-fab color="none" (click)="addSpecialist()">
-      +
-    </button>
+<div *ngIf="!dataService.specialists || !dataService.specialists.length" fxLayout ="column">
+  <div fxLayout ="row">
+    <div>
+      <button mat-mini-fab color="none" (click)="addSpecialist()">
+        +
+      </button>
+    </div>
+    <div class ="button-after-label">
+      Добавить специалиста
+    </div>
+  </div>
+  <div class="no-specialist-area" fxLayout>
+    <div fxFlexAlign="center">
+      <h3>Специалист не назначен</h3>
+      <span>Чтобы начать работу с нераспределенными магазинами,<br>вам необходимо добавить хотя бы одного специалиста</span>
+    </div>
   </div>
 </div>

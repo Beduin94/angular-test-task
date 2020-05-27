@@ -34,3 +34,24 @@
     color: rgba(0, 0, 0, 0.32);
   }
 }
+.button-after-label{
+  padding-left: 20px;
+  margin-top: 10px;
+}
+.no-specialist-area{
+  height: 600px;
+  width: 100%;
+  margin-top: 20px;
+  border: dashed rgba(0, 0, 0, 0.1) 1px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.03);
+  div{
+    width: 100%;
+    text-align: center;
+    span{
+      font-size: 14px;
+      line-height: 22px;
+      color: rgba(0, 0, 0, 0.44);
+    }
+  }
+}

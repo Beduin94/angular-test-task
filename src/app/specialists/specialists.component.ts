@@ -12,14 +12,14 @@ export class SpecialistsComponent implements OnInit {
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
+
+  }
+
+  addSpecialist():void{
     this.dataService.fetchSpecialists()
       .subscribe(() => {
         this.dataService.changeCurrentSpecialist(this.dataService.specialists[0])
         this.loading = false
       })
-  }
-
-  addSpecialist():void{
-
   }
 }
