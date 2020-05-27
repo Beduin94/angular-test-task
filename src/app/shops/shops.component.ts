@@ -11,10 +11,6 @@ export class ShopsComponent implements OnInit {
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.fetchShops()
-      .subscribe(() => {
-        this.dataService.changeShopsCounter(); // нужно пересчитать количество нераспределенных магазинов
-        this.loading = false
-      })
+    this.dataService.getShops();
   }
 }
