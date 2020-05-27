@@ -1,6 +1,7 @@
 <div class="shops-container">
-  <div fxLayout ="row">
-    <div class="shops-notification">Нераспределенные магазины: {{dataService.shops.length}}</div><div class="icon-warning"></div>
+  <div fxLayout ="row" style="padding-bottom: 30px">
+    <div class="shops-notification">Нераспределенные магазины: {{dataService.shopsCounter}}</div>
+    <div class="icon-warning" *ngIf="dataService.shopsCounter !== 0"></div>
   </div>
   <mat-action-list *ngFor="let shop of dataService.shops">
     <button mat-list-item *ngIf="!shop.distributed" (click)="dataService.addShopToSpecialist(shop)">

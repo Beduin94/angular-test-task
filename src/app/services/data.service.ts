@@ -30,6 +30,7 @@ const httpOptions = {
 export class DataService {
   public allSpecialists: ISpecialist[] = [];
   public specialists: ISpecialist[] = [];
+  public shopsCounter: number = 0;
   public shops: IShop[] = [];
   public currentSpecialist : ISpecialist;
 
@@ -59,11 +60,13 @@ export class DataService {
       return
     this.shops.find(item => item.id === shop.id).distributed = true; // удалим магазин из списка нераспределенных
     this.currentSpecialist.shops.push(shop);
+    this.changeShopsCounter();
   }
 
   removeShopFromSpecialist(id: number):void{
     this.shops.find(item => item.id === id).distributed = false; // добавим магазин в список нераспределенных
     this.currentSpecialist.shops = this.currentSpecialist.shops.filter(item => item.id !== id);
+    this.changeShopsCounter();
   }
 
   addSpecialist():void{
@@ -78,6 +81,7 @@ export class DataService {
     this.currentSpecialist.shops.forEach((element) => { // вернем все магазины специалиста в список нерапределенных
       this.shops.find(item => item.id === element.id).distributed = false;
     });
+    this.changeShopsCounter();
     this.specialists = this.specialists.filter(item => item.id !== id);
     if(this.specialists)
       this.changeCurrentSpecialist(this.specialists[0]);
@@ -88,5 +92,9 @@ export class DataService {
       return
     this.createWorkerShopRequest(this.specialists)
       .subscribe(() => {})
+  }
+
+  changeShopsCounter():void{
+    this.shopsCounter = this.shops.filter(item => !item.distributed).length;
   }
 }
