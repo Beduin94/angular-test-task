@@ -5,7 +5,7 @@
         <div mat-card-avatar class="header-image" matBadge="{{specialist.shops.length}}"
              [ngStyle]="{'background-image': 'url(./assets/mock/img/' + specialist.logo + ')'}"></div>
       </li>
-      <li class="button-tab" *ngIf="dataService.specialists.length < dataService.allSpecialists.length">
+      <li class="button-tab add-button-container" *ngIf="dataService.specialists.length < dataService.allSpecialists.length">
         <button mat-mini-fab color="none" (click)="dataService.addSpecialist()">
           +
         </button>
@@ -54,7 +54,7 @@
 </div>
 <div *ngIf="!dataService.specialists || !dataService.specialists.length" fxLayout ="column">
   <div fxLayout ="row">
-    <div>
+    <div class="add-button-container">
       <button mat-mini-fab color="none" (click)="dataService.addSpecialist()">
         +
       </button>
