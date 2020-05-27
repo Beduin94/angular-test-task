@@ -9,9 +9,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
   background-position: left center;
   background-repeat: no-repeat;
 }
+
 .icon-warning{
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
   position: relative;
   background-image: url('./assets/icons/warning.png');
   background-position: left center;
@@ -21,11 +23,42 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 .icon-delete{
   width: 20px;
   height: 20px;
-  margin-left: 50px;
   cursor: pointer;
   position: relative;
   background-image: url('./assets/icons/delete.png');
   background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.icon-delete-shop{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  background-image: url('./assets/icons/delete2.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.icon-avatar{
+  width: 60px;
+  height: 60px;
+  padding-top: 20px;
+  position: relative;
+  background-image: url('./assets/icons/user_circle_thin.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.icon-done-circle{
+  width: 15px;
+  height: 15px;
+  float: right;
+  padding-top: 20px;
+  padding-left: 18px;
+  position: relative;
+  background-image: url('./assets/icons/done_circle.png');
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
@@ -39,6 +72,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
     padding-top: 10px;
   }
 }
+
 .shop-data{
   padding-top: 3px;
   padding-left: 30px;

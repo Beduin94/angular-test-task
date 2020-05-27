@@ -1,7 +1,7 @@
 .tabs {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 10px 0 0 0;
   overflow: hidden;
   li {
     float: left;
@@ -12,7 +12,8 @@
     border-radius: 30px 30px 0 0;
     background: #fff;
     div{
-      margin-top: 25px;
+      margin-top: 10px;
+      margin-left: 10px;
     }
   }
   .button-tab{
@@ -22,16 +23,22 @@
 .tab-body{
   .mat-card{
     min-height: 567px;
+    h3{
+      color: rgba(0, 0, 0, 0.32);
+    }
+    .specialist-name{
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    .shops-counter{
+      padding-left: 20px;
+      margin-top: 10px;
+      color: #007AFF;
+    }
   }
-  .specialist-name{
-    padding-left: 20px;
-  }
-  .shops-counter{
-    padding-left: 20px;
-    color: #007AFF;
-  }
-  h3{
-    color: rgba(0, 0, 0, 0.32);
+  .icon-delete-container{
+    margin-top: 10px;
+    margin-left: auto;
   }
 }
 .button-after-label{
@@ -54,4 +61,14 @@
       color: rgba(0, 0, 0, 0.44);
     }
   }
+}
+
+.no-shops{
+  div{
+    float: left;
+  }
+}
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }

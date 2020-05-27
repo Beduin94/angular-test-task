@@ -2,9 +2,7 @@
   <div class="tab-nav">
     <ul class="tabs">
       <li *ngFor="let specialist of dataService.specialists" (click)="dataService.changeCurrentSpecialist(specialist)">
-        <div>
-          Tab {{specialist.id}}
-        </div>
+        <div mat-card-avatar class="example-header-image" matBadge="{{specialist.shops.length}}" ></div>
       </li>
       <li class="button-tab" *ngIf="dataService.specialists.length < dataService.allSpecialists.length">
         <button mat-mini-fab color="none" (click)="dataService.addSpecialist()">
@@ -17,22 +15,20 @@
     <mat-card>
       <div>
         <h3>Специалист</h3>
-        <div>
-          <mat-list>
-            <mat-list-item>
-              <span class="photo">img</span>
-              <span class="specialist-name">{{dataService.currentSpecialist.name}}</span>
-              <span class="shops-counter">{{dataService.currentSpecialist.shops.length}} магазинов</span>
-              <span class="icon-delete" (click)="dataService.deleteSpecialist(dataService.currentSpecialist.id)"></span>
-            </mat-list-item>
-          </mat-list>
+        <div fxLayout="row">
+          <div mat-card-avatar class="example-header-image"></div>
+          <div class="specialist-name">{{dataService.currentSpecialist.name}}</div>
+          <div class="shops-counter">{{dataService.currentSpecialist.shops.length}} магазинов</div>
+          <div class="icon-delete-container" (click)="dataService.deleteSpecialist(dataService.currentSpecialist.id)">
+            <div class="icon-delete" style="margin-right: 10px;"></div>
+          </div>
         </div>
       </div>
       <div>
         <h3>Магазины</h3>
         <mat-list *ngFor="let shop of dataService.currentSpecialist.shops">
           <mat-list-item>
-            <div fxLayout="row">
+            <div fxLayout="row" style="width: 100%;">
               <div class="name-in-circle" fxLayoutAlign="center">
                 <div>BS</div>
               </div>
@@ -40,14 +36,15 @@
                 <div class="shop-header">{{shop.name}}</div>
                 <div class="shop-address">{{shop.fullAddress}}</div>
               </div>
-              <div style="padding-left: 30px;">
-                <button mat-mini-fab color="#ADADAD" (click)="dataService.removeShopFromSpecialist(shop.id)">
-                  -
-                </button>
+              <div class="icon-delete-container" (click)="dataService.removeShopFromSpecialist(shop.id)">
+                <div class="icon-delete-shop"></div>
               </div>
             </div>
           </mat-list-item>
         </mat-list>
+        <div class="no-shops" *ngIf="!dataService.currentSpecialist.shops || !dataService.currentSpecialist.shops.length">
+          <div>Не назначены</div> <div class="icon-warning"></div>
+        </div>
       </div>
     </mat-card>
   </div>
@@ -67,6 +64,7 @@
     <div fxFlexAlign="center">
       <h3>Специалист не назначен</h3>
       <span>Чтобы начать работу с нераспределенными магазинами,<br>вам необходимо добавить хотя бы одного специалиста</span>
+      <div class="icon-avatar"></div>
     </div>
   </div>
 </div>

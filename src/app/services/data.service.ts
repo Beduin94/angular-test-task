@@ -79,6 +79,8 @@ export class DataService {
   }
 
   saveAllChanges():void{
+    if(!this.specialists || !this.specialists.length)
+      return
     this.createWorkerShopRequest(this.specialists)
       .subscribe(() => {})
   }
