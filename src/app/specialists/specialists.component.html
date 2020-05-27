@@ -21,7 +21,7 @@
                [ngStyle]="{'background-image': 'url(./assets/mock/img/' + dataService.currentSpecialist.logo + ')'}">
           </div>
           <div class="specialist-name">{{dataService.currentSpecialist.name}}</div>
-          <div class="shops-counter">{{dataService.currentSpecialist.shops.length}} магазинов</div>
+          <div class="shops-counter">{{dataService.currentSpecialist.shops.length}} {{getText(dataService.currentSpecialist.shops.length)}}</div>
           <div class="icon-delete-container" (click)="dataService.deleteSpecialist(dataService.currentSpecialist.id)">
             <div class="icon-delete" style="margin-right: 10px;"></div>
           </div>
