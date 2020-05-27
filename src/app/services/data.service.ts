@@ -45,6 +45,11 @@ export class DataService {
       .pipe(tap(allSpecialists => this.allSpecialists = allSpecialists))
   }
 
+  createWorkerShopRequest (specialists: ISpecialist[]): Observable<ISpecialist> {
+    return this.http.post<ISpecialist>("http://localhost:4200/CreateWorkerShopRequest", specialists, httpOptions)
+      .pipe();
+  }
+
   changeCurrentSpecialist(specialist: ISpecialist):void{
     this.currentSpecialist = specialist;
   }
@@ -83,10 +88,5 @@ export class DataService {
       return
     this.createWorkerShopRequest(this.specialists)
       .subscribe(() => {})
-  }
-
-  createWorkerShopRequest (specialists: ISpecialist[]): Observable<ISpecialist> {
-    return this.http.post<ISpecialist>("http://localhost:4200/CreateWorkerShopRequest", specialists, httpOptions)
-      .pipe();
   }
 }

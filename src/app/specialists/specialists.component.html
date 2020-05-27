@@ -2,7 +2,8 @@
   <div class="tab-nav">
     <ul class="tabs">
       <li *ngFor="let specialist of dataService.specialists" (click)="dataService.changeCurrentSpecialist(specialist)">
-        <div mat-card-avatar class="example-header-image" matBadge="{{specialist.shops.length}}" ></div>
+        <div mat-card-avatar class="header-image" matBadge="{{specialist.shops.length}}"
+             [ngStyle]="{'background-image': 'url(./assets/mock/img/' + specialist.logo + ')'}"></div>
       </li>
       <li class="button-tab" *ngIf="dataService.specialists.length < dataService.allSpecialists.length">
         <button mat-mini-fab color="none" (click)="dataService.addSpecialist()">
@@ -16,7 +17,9 @@
       <div>
         <h3>Специалист</h3>
         <div fxLayout="row">
-          <div mat-card-avatar class="example-header-image"></div>
+          <div mat-card-avatar class="header-image"
+               [ngStyle]="{'background-image': 'url(./assets/mock/img/' + dataService.currentSpecialist.logo + ')'}">
+          </div>
           <div class="specialist-name">{{dataService.currentSpecialist.name}}</div>
           <div class="shops-counter">{{dataService.currentSpecialist.shops.length}} магазинов</div>
           <div class="icon-delete-container" (click)="dataService.deleteSpecialist(dataService.currentSpecialist.id)">
