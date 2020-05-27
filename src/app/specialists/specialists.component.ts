@@ -6,20 +6,8 @@ import {DataService} from "../services/data.service";
   templateUrl: './specialists.component.html',
   styleUrls: ['./specialists.component.scss']
 })
-export class SpecialistsComponent implements OnInit {
-  loading: boolean = true;
+export class SpecialistsComponent {
 
   constructor(public dataService: DataService) { }
 
-  ngOnInit(): void {
-
-  }
-
-  addSpecialist():void{
-    this.dataService.fetchSpecialists()
-      .subscribe(() => {
-        this.dataService.changeCurrentSpecialist(this.dataService.specialists[0])
-        this.loading = false
-      })
-  }
 }

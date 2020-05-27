@@ -6,14 +6,14 @@
           Tab {{specialist.id}}
         </div>
       </li>
-      <li class="button-tab">
-        <button mat-mini-fab color="none" (click)="addSpecialist()">
+      <li class="button-tab" *ngIf="dataService.specialists.length < dataService.allSpecialists.length">
+        <button mat-mini-fab color="none" (click)="dataService.addSpecialist()">
           +
         </button>
       </li>
     </ul>
   </div>
-  <div class="tab-body" *ngIf="!loading">
+  <div class="tab-body">
     <mat-card>
       <div>
         <h3>Специалист</h3>
@@ -23,6 +23,7 @@
               <span class="photo">img</span>
               <span class="specialist-name">{{dataService.currentSpecialist.name}}</span>
               <span class="shops-counter">{{dataService.currentSpecialist.shops.length}} магазинов</span>
+              <span class="icon-delete" (click)="dataService.deleteSpecialist(dataService.currentSpecialist.id)"></span>
             </mat-list-item>
           </mat-list>
         </div>
@@ -54,7 +55,7 @@
 <div *ngIf="!dataService.specialists || !dataService.specialists.length" fxLayout ="column">
   <div fxLayout ="row">
     <div>
-      <button mat-mini-fab color="none" (click)="addSpecialist()">
+      <button mat-mini-fab color="none" (click)="dataService.addSpecialist()">
         +
       </button>
     </div>

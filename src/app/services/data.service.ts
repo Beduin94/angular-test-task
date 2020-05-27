@@ -19,6 +19,7 @@ export interface ISpecialist {
 
 @Injectable({providedIn: 'root'})
 export class DataService {
+  public allSpecialists: ISpecialist[] = [];
   public specialists: ISpecialist[] = [];
   public shops: IShop[] = [];
   public currentSpecialist : ISpecialist;
@@ -32,7 +33,7 @@ export class DataService {
 
   fetchSpecialists(): Observable<ISpecialist[]> {
     return this.http.get<ISpecialist[]>('/assets/mock/specialists.json')
-      .pipe(tap(specialists => this.specialists = specialists))
+      .pipe(tap(allSpecialists => this.allSpecialists = allSpecialists))
   }
 
   changeCurrentSpecialist(specialist: ISpecialist):void{
@@ -47,5 +48,19 @@ export class DataService {
   removeShopFromSpecialist(id: number):void{
     this.shops.find(item => item.id === id).distributed = false; // добавим магазин в список нераспределенных
     this.currentSpecialist.shops = this.currentSpecialist.shops.filter(item => item.id !== id);
+  }
+
+  addSpecialist():void{
+    this.fetchSpecialists()
+      .subscribe(() => {
+        this.specialists.push(this.allSpecialists[this.specialists.length])
+        this.changeCurrentSpecialist(this.specialists[this.specialists.length-1])
+      })
+  }
+
+  deleteSpecialist(id: number):void{
+    this.specialists = this.specialists.filter(item => item.id !== id);
+    if(this.specialists)
+      this.changeCurrentSpecialist(this.specialists[0]);
   }
 }
